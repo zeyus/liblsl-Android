@@ -1,11 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 35
+    namespace = 'edu.ucsd.sccn'
     defaultConfig {
         applicationId "edu.ucsd.sccn.receivestringmarkers"
-        minSdkVersion 24
-        targetSdkVersion 30
+        minSdkVersion 34
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
     }
@@ -13,14 +14,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
-    }
-    dexOptions {
-        javaMaxHeapSize "2048m"
     }
 }
 
 dependencies {
     implementation project(':liblsl-Java')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation("androidx.appcompat:appcompat:1.7.0")
+    //implementation 'androidx.appcompat:appcompat:1.1.0'
 }
